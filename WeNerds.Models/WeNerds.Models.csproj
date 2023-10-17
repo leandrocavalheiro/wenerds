@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<PropertyGroup>
+		<VersionSuffix>0.1.0</VersionSuffix>
+		<AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.1.0</AssemblyVersion>
+		<AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
+		<Version Condition=" '$(VersionSuffix)' == '' ">0.1.0</Version>
+		<Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
+		<Company>WeNerds</Company>
+		<Authors>Leandro Luiz G. Cavalheiro</Authors>
+		<Copyright>Copyright ©WeNerds</Copyright>
+		<Product>WeNerds.Models</Product>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>Commons Models</Description>
+	</PropertyGroup>
+
+  <ItemGroup>
+	  <None Include="..\WeNerds.Models\README.md" Pack="true" PackagePath="$(PackageReadmeFile)" />
+	  <PackageReference Include="MediatR" Version="12.1.1" />
+  </ItemGroup>
+
+</Project>

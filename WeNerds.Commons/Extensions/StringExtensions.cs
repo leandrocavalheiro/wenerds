@@ -7,6 +7,7 @@ namespace WeNerds.Commons.Extensions;
 public static partial class StringExtensions
 {
     private static readonly string OnlyNumbersRegex = "[^0-9]";
+    private static readonly Regex RegexpEmail = new Regex("^[A-Za-z0-9](([_.-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([.-]?[a-zA-Z0-9]+)*)([.][A-Za-z]{2,4})$");
 
     [GeneratedRegex("[A-Z]")]
     private static partial Regex SnakeCaseRegex();
@@ -143,4 +144,8 @@ public static partial class StringExtensions
     }
     public static bool IsEqual(this string value, string valueComparer, StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
         => string.Equals(value, valueComparer, stringComparison);
+
+    public static bool IsValidEmail(this string value)
+        => RegexpEmail.Match(value).Success;        
+    
 }

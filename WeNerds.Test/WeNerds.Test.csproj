@@ -1,19 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>    
+    <TargetFramework>net8.0</TargetFramework>    
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-WeNerds.Test-7c1c55a0-ac4f-47e1-a484-7241748ebda2</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.9" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\WeNerds.Commons\WeNerds.Commons.csproj" />
     <ProjectReference Include="..\WeNerds.Services\WeNerds.Services.csproj" />
+    <ProjectReference Include="..\WeNerds.WeRabbitMQStream\WeNerds.WeRabbitMQStreams.csproj" />
   </ItemGroup>
 </Project>

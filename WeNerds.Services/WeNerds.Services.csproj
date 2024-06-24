@@ -1,16 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net80</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 	<PropertyGroup>
-		<VersionSuffix>0.1.0</VersionSuffix>
-		<AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.1.0</AssemblyVersion>
-		<AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
-		<Version Condition=" '$(VersionSuffix)' == '' ">0.1.0</Version>
-		<Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
+		<VersionSuffix>1.0.0</VersionSuffix>
+		<AssemblyVersion>$(VersionSuffix)</AssemblyVersion>
+		<Version>$(VersionSuffix)</Version>
 		<Company>WeNerds</Company>
 		<Authors>Leandro Luiz G. Cavalheiro</Authors>
 		<Copyright>Copyright ©WeNerds</Copyright>
@@ -21,9 +19,9 @@
 
   <ItemGroup>
 	<None Include="..\WeNerds.Services\README.md" Pack="true" PackagePath="$(PackageReadmeFile)" />
-	<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
-	<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.0" />
-	<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.0" />
+	<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+	<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.6.2" />
+	<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.6.2" />
   </ItemGroup>
 
   <ItemGroup>

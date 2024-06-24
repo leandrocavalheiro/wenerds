@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+       
+  rabbitmq:
+    image: "rabbitmq:3.12.13-management"
+    hostname: "rabbitmq"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_PLUGINS=rabbitmq_stream
+
+    volumes:
+      - ./data/:/var/lib/rabbitmq/            
+    ports:
+      - "5672:5672"    # Porta padrão para RabbitMQ
+      - "5552:5552"    #Porta para Streams
+      - "15672:15672"  # Porta para o painel de controle do RabbitMQ

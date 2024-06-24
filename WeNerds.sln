@@ -11,7 +11,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeNerds.Services", "WeNerds
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeNerds.Test", "WeNerds.Test\WeNerds.Test.csproj", "{C9B22FF7-C33C-44D5-B288-0EE56656E9CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeNerds.Benchmark", "WeNerds.Benchmark\WeNerds.Benchmark.csproj", "{07709869-CB36-4EB5-8371-EB0FCF04C81E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeNerds.Benchmark", "WeNerds.Benchmark\WeNerds.Benchmark.csproj", "{07709869-CB36-4EB5-8371-EB0FCF04C81E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeNerds.Domain", "WeNerds.Domain\WeNerds.Domain.csproj", "{AB02FF73-E8FE-45AB-9793-59B5BADA876D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeNerds.WeRabbitMQStreams", "WeNerds.WeRabbitMQStream\WeNerds.WeRabbitMQStreams.csproj", "{24D64CBE-8B32-4430-A945-0E8C44E7526B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0E9D355-F410-43DE-9455-87173A468D49}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeNerds.Notification", "WeNerds.Notification\WeNerds.Notification.csproj", "{6EA9FF1D-B5A4-4D0A-A0DB-96451C3EDA39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +50,18 @@ Global
 		{07709869-CB36-4EB5-8371-EB0FCF04C81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07709869-CB36-4EB5-8371-EB0FCF04C81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07709869-CB36-4EB5-8371-EB0FCF04C81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB02FF73-E8FE-45AB-9793-59B5BADA876D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB02FF73-E8FE-45AB-9793-59B5BADA876D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB02FF73-E8FE-45AB-9793-59B5BADA876D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB02FF73-E8FE-45AB-9793-59B5BADA876D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24D64CBE-8B32-4430-A945-0E8C44E7526B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D64CBE-8B32-4430-A945-0E8C44E7526B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D64CBE-8B32-4430-A945-0E8C44E7526B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D64CBE-8B32-4430-A945-0E8C44E7526B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA9FF1D-B5A4-4D0A-A0DB-96451C3EDA39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA9FF1D-B5A4-4D0A-A0DB-96451C3EDA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA9FF1D-B5A4-4D0A-A0DB-96451C3EDA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA9FF1D-B5A4-4D0A-A0DB-96451C3EDA39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

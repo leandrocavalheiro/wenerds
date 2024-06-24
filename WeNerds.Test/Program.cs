@@ -1,5 +1,6 @@
 using WeNerds.Services.Configurations;
 using WeNerds.Test;
+using WeNerds.WeRabbitMQStreams.Configurations;
 
 string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 var config = new ConfigurationBuilder()
@@ -12,6 +13,7 @@ IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
         services.AddWeJwt(config);
+        services.AddRabbitMQStreams(config);
         services.AddHostedService<Worker>();
     })
     .Build();

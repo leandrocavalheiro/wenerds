@@ -98,24 +98,15 @@ namespace WeNerds.Commons.Extensions
         /// <returns>A bool value</returns>
         public static DateTimeOffset ToDate(this DateTimeOffset? value, bool isUtcTime = true, bool ifNullReturnCurrentDate = true)
         {
-            DateTimeOffset result;
-            try
-            {
-                if (value == null)
-                    result = WeMethods.Now(isUtcTime);
-                else
-                    result = (DateTimeOffset)value;
-            }
-            catch
-            {
 
-                if (ifNullReturnCurrentDate)
-                    result = WeMethods.Now(isUtcTime);
-                else
-                    result = DateTime.MinValue;
-            }
 
-            return result;
+            if (value is not null)
+                return value.Value;
+
+            if (ifNullReturnCurrentDate)
+                return NowIfNull(value, isUtcTime);
+
+            return DateTimeOffset.MinValue;
         }
 
         /// <summary>
@@ -230,6 +221,7 @@ namespace WeNerds.Commons.Extensions
 
             return endDate - startDate;
         }
-        
+        public static DateTimeOffset NowIfNull(this DateTimeOffset? value, bool isUTC = true)
+            => value ?? WeMethods.Now(isUTC);
     }
 }

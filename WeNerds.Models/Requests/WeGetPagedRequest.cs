@@ -2,8 +2,13 @@
 
 namespace WeNerds.Models.Requests;
 
-public class WeGetPagedRequest(string Filter, int Page = 1, int PageSize = 25, ICollection<WeSortingInfo> OrderBy = default)
+public class WeGetPagedRequest(string filter, int page = 1, int pageSize = 25, ICollection<WeSortingInfo> orderBy = default)
 {
+    public string Filter { get; set; } = filter;
+    public int Page { get; set;} = page;
+    public int PageSize { get; set;} = pageSize;
+    public ICollection<WeSortingInfo> OrderBy {get; set;} = orderBy;
+
     public bool HasFilter() 
         => !string.IsNullOrEmpty(Filter);
 

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using WeNerds.Commons.Enumarators;
 using WeNerds.Services.Implementation;
 using WeNerds.Services.Interfaces;
 
@@ -7,18 +6,18 @@ namespace WeNerds.Services.Configurations;
 
 public static class WeNotificationConfiguration
 {
-    public static void AddWeNotification(this IServiceCollection services, InjectionTypeEnum injectionType = InjectionTypeEnum.Scoped)
+    public static void AddWeNotification(this IServiceCollection services, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
     {
-        switch (injectionType)
+        switch (serviceLifetime)
         {
-            case InjectionTypeEnum.Scoped:
-                services.AddScoped<IWeNotificationService, WeNotificationService>();
+            case ServiceLifetime.Transient:
+                services.AddTransient<IWeNotificationService, WeNotificationService>();                
                 break;
-            case InjectionTypeEnum.Singleton:
+            case ServiceLifetime.Singleton:
                 services.AddSingleton<IWeNotificationService, WeNotificationService>();                
                 break;
             default:
-                services.AddTransient<IWeNotificationService, WeNotificationService>();                
+                services.AddScoped<IWeNotificationService, WeNotificationService>();                
                 break;
         }
         

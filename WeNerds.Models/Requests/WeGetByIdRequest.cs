@@ -1,5 +1,4 @@
-﻿using WeNerds.Models.Requests;
-namespace WeNerds.Models.Requests;
+﻿namespace WeNerds.Models.Requests;
 
 public class WeGetByIdRequest(Guid id) : WeRequest
 {

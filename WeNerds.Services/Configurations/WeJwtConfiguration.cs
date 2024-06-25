@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using WeNerds.Commons.Enumarators;
+using WeNerds.Commons;
 using WeNerds.Commons.Extensions;
 using WeNerds.Models.Dto;
 using WeNerds.Services.Implementation;
@@ -13,20 +13,19 @@ namespace WeNerds.Services.Configurations
 {
     public static class WeJwtConfiguration
     {
-        public static void AddWeJwt(this IServiceCollection services, IConfiguration configuration, InjectionTypeEnum injectionType = InjectionTypeEnum.Singleton)
+        public static void AddWeJwt(this IServiceCollection services, IConfiguration configuration, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
         {
-
             try
             {
-                var tokenConfigurations = new WeToken(configuration.GetSection("WeNerds:Jwt:Secret").Value.GetValueOrDefault("70ee751e-ab08-47a0-a02a-e667a7e75ffd"),
-                                                      configuration.GetSection("WeNerds:Jwt:TokenExpiresInHours").Value.GetValueOrDefault("1").ToUInt(),
-                                                      configuration.GetSection("WeNerds:Jwt:RefreshTokenExpiresInHours").Value.GetValueOrDefault("48").ToUInt(),
-                                                      configuration.GetSection("WeNerds:Jwt:Issuer").Value.GetValueOrDefault("WeJwt"),
-                                                      configuration.GetSection("WeNerds:Jwt:Audience").Value.GetValueOrDefault("http://localhost"));
+                var tokenConfigurations = new WeToken(configuration.GetSection(WeConstants.EV_NAME_JWT_SECRETS).Value.GetValueOrDefault("70ee751e-ab08-47a0-a02a-e667a7e75ffd"),
+                                                      configuration.GetSection(WeConstants.EV_NAME_JWT_TOKEN_EXPIRATION).Value.GetValueOrDefault("1").ToUInt(),
+                                                      configuration.GetSection(WeConstants.EV_NAME_JWT_REFRESH_TOKEN_EXPIRATION).Value.GetValueOrDefault("48").ToUInt(),
+                                                      configuration.GetSection(WeConstants.EV_NAME_JWT_ISSUER).Value.GetValueOrDefault("WeJwt"),
+                                                      configuration.GetSection(WeConstants.EV_NAME_JWT_AUDIANCE).Value.GetValueOrDefault("http://localhost"));
 
 
 
-                Register(services, tokenConfigurations, injectionType);
+                Register(services, tokenConfigurations, serviceLifetime);
 
                 var key = Encoding.ASCII.GetBytes(tokenConfigurations.Secret);
 
@@ -57,23 +56,24 @@ namespace WeNerds.Services.Configurations
             }
         }
 
-        private static void Register(IServiceCollection services, WeToken tokenConfigurations, InjectionTypeEnum injectionType)
+        private static void Register(IServiceCollection services, WeToken tokenConfigurations, ServiceLifetime serviceLifetime)
         {
             try
             {
                 services.AddSingleton<WeToken>(tokenConfigurations);
-                switch (injectionType)
+                switch (serviceLifetime)
                 {
-                    case InjectionTypeEnum.Transient:
-                        services.AddSingleton<IWeJwtService, WeJwtService>();
+                    case ServiceLifetime.Transient:
+                        services.AddTransient<IWeJwtService, WeJwtService>();
+                        
                         break;
 
-                    case InjectionTypeEnum.Scoped:
-                        services.AddScoped<IWeJwtService, WeJwtService>();
+                    case ServiceLifetime.Singleton:
+                        services.AddSingleton<IWeJwtService, WeJwtService>();                        
                         break;
 
                     default:
-                        services.AddSingleton<IWeJwtService, WeJwtService>();
+                        services.AddScoped<IWeJwtService, WeJwtService>();
                         break;
                 }
             }

@@ -14,7 +14,7 @@ public class WeNotificationService : IWeNotificationService
     private readonly List<WeNotification> _notifications;
     public WeNotificationService()
     {
-        _notifications = new List<WeNotification>();
+        _notifications = [];
     }
     public void BadRequest(string messageCode, string message, string field = "")
         => AddNotification(messageCode, message, BadRequestCode, field);
@@ -36,10 +36,8 @@ public class WeNotificationService : IWeNotificationService
         => AddNotification(validationError.ErrorCode, validationError.ErrorMessage, statusCode, validationError.PropertyName);    
     private void AddNotification(ICollection<WeValidatorError> validationError, int statusCode = BadRequestCode)
     {
-
         foreach (var error in validationError)
             AddNotification(error.ErrorCode, error.ErrorMessage, statusCode, error.PropertyName);
-
     }
     public IEnumerable<WeNotification> GetNotifications()
         => _notifications;
@@ -47,4 +45,8 @@ public class WeNotificationService : IWeNotificationService
         => _notifications.Any();
     public bool HasNotificationsWithNotFoundStatus()
         => _notifications.Any(p => p.Status.Equals(NotFoundCode));
+    public bool HasNotificationsWithForbbidenStatus()
+        => _notifications.Any(p => p.Status.Equals(ForbiddenCode));        
+    public bool HasNotificationsWithUnauthorizedtatus()
+        => _notifications.Any(p => p.Status.Equals(UnauthorizedCode));                
 }

@@ -55,13 +55,13 @@ public static class ExceptionHandlerMiddleware
 
     private static string GetInternalError(Guid errorId)
     {
-        var result = new WeResponse<WeNotification>(false, new WeNotification("", "InternalError", $"InternalError: {errorId}", StatusCodes.Status500InternalServerError));
+        var result = new WeResponse<WeNotification>(false, new WeNotification(null, "InternalError", $"InternalError: {errorId}", StatusCodes.Status500InternalServerError));
         return result.ToString();        
     }
 
     private static string GetInternalErrorDebugMode(IExceptionHandlerFeature exception)
     {
-        var result = new WeResponse<WeNotification>(false, new WeNotification("", "InternalError", GetLogError(exception), StatusCodes.Status500InternalServerError));        
+        var result = new WeResponse<WeNotification>(false, new WeNotification(null, "InternalError", GetLogError(exception), StatusCodes.Status500InternalServerError));        
         return result.ToString();
     }
 

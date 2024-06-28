@@ -12,6 +12,8 @@ public static class WeConstants
     public const string EV_NAME_CRYPT_KEY = "WN_CRYPT_KEY";
     public const string EV_NAME_CRYPT_INTERATIONS = "WN_CRYPT_INTERATIONS";
 
+    public const string EV_NAME_EXCEPTION_HANDLER_SHOW_LOG_PRODUCTION = "WN_EXCEPTION_HANDLER_SHOW_LOG_PRODUCTION";
+
 
     public const string DEFAULT_CRYPT_SALT = "b7d72229-5d7b-4889-893d-635ebadd05cc";
     public const string DEFAULT_CRYPT_KEY = "ce3b2eea-6677-4446-90cc-798c0443216d";

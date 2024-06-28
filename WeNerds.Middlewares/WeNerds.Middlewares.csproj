@@ -3,9 +3,22 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+	<PropertyGroup>
+		<VersionSuffix>1.0.3</VersionSuffix>
+		<AssemblyVersion>$(VersionSuffix)</AssemblyVersion>
+		<Version>$(VersionSuffix)</Version>
+		<Company>WeNerds</Company>
+		<Authors>Leandro Luiz G. Cavalheiro</Authors>
+		<Copyright>Copyright ©WeNerds</Copyright>
+		<Product>WeNerds.Middlewares</Product>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>Commons Middlewares</Description>
+	</PropertyGroup>  
 
   <ItemGroup>
+    <None Include="..\WeNerds.Middlewares\README.md" Pack="true" PackagePath="$(PackageReadmeFile)" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />

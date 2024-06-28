@@ -9,8 +9,8 @@ public static class WeConstants
     public const string EV_NAME_JWT_AUDIANCE = "WN_JWT_AUDIANCE";
 
     public const string EV_NAME_CRYPT_SALT = "WN_CRYPT_SALT";
-    public const string EV_NAME_CRYPT_KEY = "WN_CRYPT_SALT";
-    public const string EV_NAME_CRYPT_INTERATIONS = "WN_CRYPT_SALT";
+    public const string EV_NAME_CRYPT_KEY = "WN_CRYPT_KEY";
+    public const string EV_NAME_CRYPT_INTERATIONS = "WN_CRYPT_INTERATIONS";
 
 
     public const string DEFAULT_CRYPT_SALT = "b7d72229-5d7b-4889-893d-635ebadd05cc";

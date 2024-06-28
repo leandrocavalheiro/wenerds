@@ -33,6 +33,7 @@ public static class ExceptionHandlerMiddleware
                         LogError(logger, errorId, contextFeature);
                     
                     await context.Response.WriteAsync(GetInternalError(errorId));
+                    return;
                 }
                         
                 var logError = GetLogError(contextFeature);

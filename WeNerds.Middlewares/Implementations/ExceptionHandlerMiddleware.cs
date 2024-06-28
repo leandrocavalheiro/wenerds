@@ -7,6 +7,8 @@ using Microsoft.Extensions.Logging;
 using System.Net.Mime;
 using WeNerds.Commons;
 using WeNerds.Models.Dto;
+using WeNerds.Models.Responses;
+using WeNerds.Models.Types;
 
 
 namespace WeNerds.Middlewares.Implementations;
@@ -50,11 +52,17 @@ public static class ExceptionHandlerMiddleware
         return null;
     }
 
-    private static string GetInternalError(Guid errorId)    
-        => (new WeNotification("", "InternalError", $"InternalError: {errorId}", StatusCodes.Status500InternalServerError)).ToString();
+    private static string GetInternalError(Guid errorId)
+    {
+        var result = new WeResponse<WeNotification>(false, new WeNotification("", "InternalError", $"InternalError: {errorId}", StatusCodes.Status500InternalServerError));
+        return result.ToString();        
+    }
 
     private static string GetInternalErrorDebugMode(IExceptionHandlerFeature exception)
-        => (new WeNotification("", "InternalError", GetLogError(exception), StatusCodes.Status500InternalServerError)).ToString();
+    {
+        var result = new WeResponse<WeNotification>(false, new WeNotification("", "InternalError", GetLogError(exception), StatusCodes.Status500InternalServerError));        
+        return result.ToString();
+    }
 
     private static string GetLogError(IExceptionHandlerFeature exceptionHandler)
         => $"Message: {exceptionHandler.Error.Message}|InnerException: {exceptionHandler.Error.InnerException?.Message}|StackTrace:{exceptionHandler.Error.StackTrace}";

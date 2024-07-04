@@ -1,0 +1,18 @@
+{
+  "person": {
+    "notFound": "Person not found",
+    "alreadyRegistered": "Person already registered",
+    "blocked":  "Person blocked"
+  },
+  "account": {
+    "notFound": "Account not found",
+    "alreadyRegistered": "Account already registered",
+    "blocked": "Account blocked"
+  },
+  "orders": {
+    "notFound": "Order not found",
+    "alreadyRegistered": "Order already registered",
+    "blocked": "Order blocked",
+    "sended": "Order sendend"
+  }
+}

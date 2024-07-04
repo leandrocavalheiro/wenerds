@@ -1,0 +1,6 @@
+messages:
+  context1:
+    hello: Teste context1
+
+  context2:
+    hello: Teste context2

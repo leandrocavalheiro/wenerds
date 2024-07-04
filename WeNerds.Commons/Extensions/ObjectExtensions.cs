@@ -43,6 +43,7 @@ public static class ObjectExtensions
         return JsonSerializer.Serialize(value, options);
     }
 
+
     public static Guid NewGuidV7(this object _, DateTimeOffset? dateTimeOffset = null)
     {
         // bytes [0-5]: datetimeoffset yyyy-MM-dd hh:mm:ss fff

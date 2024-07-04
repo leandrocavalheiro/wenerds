@@ -140,7 +140,16 @@ public static partial class StringExtensions
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
 
         };
-        return JsonSerializer.Deserialize<TResponse>(value, options);
+        
+        try
+        {
+            return JsonSerializer.Deserialize<TResponse>(value, options);
+        }
+        catch (Exception)
+        {
+
+            return default;
+        }       
     }
     public static bool IsEqual(this string value, string valueComparer, StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
         => string.Equals(value, valueComparer, stringComparison);

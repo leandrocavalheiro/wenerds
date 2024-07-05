@@ -41,15 +41,11 @@ For correct operation, this filter depends on the **WeNotification** service als
 
 How this filter works is very simple, just register it in program.cs and that's it.
 ```csharp
-builder.Services.AddWeResultHandlerFilter();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<WeResultHandlerFilter>();
+});
 ```
-
-It is important to note that by default the filter is registered with ServiceLifetime = Scoped.  
-But if you want another lifetime, just inform at the time of registration, like the example below:
-```csharp
-builder.Services.AddWeResultHandlerFilter(ServiceLifetime.Singleton);
-```
-
 
 ## ✨ Contacts
 

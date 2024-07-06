@@ -1,5 +1,4 @@
-﻿
-using WeNerds.Models.Dto;
+﻿using WeNerds.Models.Dto;
 
 namespace WeNerds.Services.Interfaces;
 
@@ -14,5 +13,7 @@ public interface IWeNotificationService
     void InternalError(string messageCode, string message);
     IEnumerable<WeNotification> GetNotifications();
     bool HasNotifications();
-    public bool HasNotificationsWithNotFoundStatus();
+    bool HasNotificationsWithNotFoundStatus();
+    bool HasNotificationsWithForbbidenStatus();
+    bool HasNotificationsWithUnauthorizedtatus();        
 }

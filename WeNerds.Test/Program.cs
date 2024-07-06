@@ -9,10 +9,12 @@ var config = new ConfigurationBuilder()
     .AddJsonFile($"appsettings.{environment}.json", optional: true, reloadOnChange: true)
     .Build();
 
+
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
         services.AddWeJwt(config);
+        services.AddWeBabel(config);
         services.AddRabbitMQStreams(config);
         services.AddHostedService<Worker>();
     })

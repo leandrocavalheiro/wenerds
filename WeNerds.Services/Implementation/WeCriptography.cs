@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
-using WeNerds.Services.Interfaces;
-using WeNerds.Commons.Extensions;
 using System.Security.Cryptography;
 using System.Text;
 using WeNerds.Commons;
+using WeNerds.Commons.Extensions;
+using WeNerds.Services.Interfaces;
 namespace WeNerds.Services.Implementation;
 
 public class WeCriptography(IConfiguration configuration) : IWeCriptography
@@ -39,6 +39,9 @@ public class WeCriptography(IConfiguration configuration) : IWeCriptography
     }
     public bool CompareText(string text, string encryptedText, string salt = null)
     {
+        if (string.IsNullOrWhiteSpace(salt))
+            salt = _salt;
+
         text = Encrypt(text, salt);
         return text == encryptedText;
     }

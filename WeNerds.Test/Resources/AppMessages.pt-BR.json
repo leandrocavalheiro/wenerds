@@ -1,0 +1,19 @@
+{
+  "person": {
+    "notFound": "Pessoa não encontrada.",
+    "alreadyRegistered": "Pessoa já cadastrada",
+    "blocked":  "Pessoa bloqueada"
+  },
+  "account": {
+    "notFound": "Conta não encontrada.",
+    "alreadyRegistered": "Conta já cadastrada",
+    "blocked": "Conta bloqueada"
+  },
+  "orders": {
+    "notFound": "Pedido não encontrado.",
+    "alreadyRegistered": "Pedido já cadastrado",
+    "blocked": "Pedido Bloqueado",
+    "sended":  "Pedido enviado"
+  }
+
+}

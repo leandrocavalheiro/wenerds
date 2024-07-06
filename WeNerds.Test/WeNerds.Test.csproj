@@ -17,4 +17,12 @@
     <ProjectReference Include="..\WeNerds.Services\WeNerds.Services.csproj" />
     <ProjectReference Include="..\WeNerds.WeRabbitMQStream\WeNerds.WeRabbitMQStreams.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Resources\AppMessages.en.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

@@ -28,9 +28,9 @@ $ dotnet add package WeNerds.Filters
 ### **WeResultHandlerFilter**
 This filter will be responsible for ensuring that in each response, if there is a message in WeNotification, the API response is modified.  
 Therefore, if there is any record in WeNotification, regardless of the value in the response, it will be manipulated following the following rule:  
-- Will always return an object of type **WeResponse<Error>**  
+- Will always return an object of type **WeResponse<IEnumerable<WeNotification>>**  
 - The **Success** field will have the value **false**  
-- The **Data** field will contain a list of **WeError**  
+- The **Data** field will contain a list of **WeNotification**  
 - The request StatusCode may be as follows: 403, 401, 404, 400  
     - The priority is exactly this, that is, if the message list has at least one Status403Forbidden message, the request status will be 403, otherwise it checks if there is at least one Status401Unauthorized message, if it has the request status it will be 401, and so on until it reaches status 400.
 

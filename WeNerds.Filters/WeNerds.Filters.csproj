@@ -7,7 +7,7 @@
   </PropertyGroup>
 
 	<PropertyGroup>
-		<VersionSuffix>1.0.1</VersionSuffix>
+		<VersionSuffix>1.0.2</VersionSuffix>
 		<AssemblyVersion>$(VersionSuffix)</AssemblyVersion>
 		<Version>$(VersionSuffix)</Version>
 		<Company>WeNerds</Company>

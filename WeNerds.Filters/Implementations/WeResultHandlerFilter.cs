@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using WeNerds.Models.Dto;
 using WeNerds.Models.Responses;
-using WeNerds.Models.Types;
 using WeNerds.Services.Interfaces;
 
 
@@ -33,9 +33,8 @@ public class WeResultHandlerFilter : IAsyncResultFilter
                 else
                     objectResult.StatusCode = StatusCodes.Status400BadRequest;
 
-                // Create and set the error response
-                var error = new WeError(_weNotificationService.GetNotifications());
-                objectResult.Value = new WeResponse<WeError>(false, error);
+                // Create and set the error response                
+                objectResult.Value = new WeResponse<IEnumerable<WeNotification>>(false, _weNotificationService.GetNotifications());
 
                 // Set the modified result back to the context
                 context.Result = objectResult;

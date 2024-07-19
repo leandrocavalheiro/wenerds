@@ -5,5 +5,5 @@ namespace WeNerds.Services.Interfaces;
 
 public interface IWeJwtService
 {
-    (WeTokenResultViewModel token, string codeError, string exceptionMessage) GenarateJwt(string accountId, string tenantId, string userId, string userEmail = "", ICollection<Claim> claims = null);
+    (WeTokenResultViewModel token, string codeError, string exceptionMessage) GenarateJwt(string tenantId, string accountId, string userId, string userEmail = "", ICollection<Claim> claims = null);
 }
